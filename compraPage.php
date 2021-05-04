@@ -32,13 +32,14 @@
               <th class="bg-dark text-white">Nombre-Producto</th>
               <th class="bg-dark text-white">Talla</th>
               <th class="bg-dark text-white">Precio</th>
+              <th class="bg-dark text-white">Imagen</th>
               
              
           </tr>
         </thead>
         
     <?php
-    $consulta= "SELECT * FROM productos";
+    $consulta= "SELECT CodigoBarras, modelo, nombreProducto, talla, precio, imagen FROM productos";
     $ejecutarconsulta= mysqli_query($db,$consulta);
     $verfilas= mysqli_num_rows($ejecutarconsulta);
     $fila= mysqli_fetch_array($ejecutarconsulta);
@@ -64,7 +65,7 @@
                             <td>'.$fila[2].'</td>
                             <td>'.$fila[3].'</td>
                             <td>'.$fila[4].'</td>
-                           
+                            <td>'.$fila[5].'</td>
                             
                             
                         </tr>';

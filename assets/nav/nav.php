@@ -4,5 +4,5 @@
   <a class="flex-sm-fill text-sm-center nav-link" href="muestraUsuarios.php">Usuarios</a>
   <a class="flex-sm-fill text-sm-center nav-link" href="muestraProductos.php">Productos</a>
   <a class="flex-sm-fill text-sm-center nav-link" href="muestraProovedores.php">Proveedores</a>
-  <a class="flex-sm-fill text-sm-center nav-link" href="home.php">Regresar a Home</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="index.php">Regresar a Home</a>
 </nav>

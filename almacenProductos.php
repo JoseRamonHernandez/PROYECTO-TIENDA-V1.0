@@ -17,6 +17,8 @@ $nombre= $_GET['nombre'];
 $talla= $_GET['talla'];
 $precio= $_GET['precio'];
 $cantidad= $_GET['cantidad'];
+$imagen= $_GET['imagen'];
+$complementoImagen="<img src=./assets/images/$imagen.jpg>";
 ?>
 <br>
 <?php
@@ -27,7 +29,7 @@ echo "$apMaterno";
 echo "$edad";*/
 
 
-$almacenar= "INSERT INTO productos( CodigoBarras, modelo, NombreProducto, talla, precio, cantidad) VALUES ('$codigo', '$modelo', '$nombre', '$talla', '$precio', '$cantidad')";
+$almacenar= "INSERT INTO productos( CodigoBarras, modelo, NombreProducto, talla, precio, cantidad, imagen) VALUES ('$codigo', '$modelo', '$nombre', '$talla', '$precio', '$cantidad', '$complementoImagen')";
 $resultado= mysqli_query($db, $almacenar);
 
 if($resultado)

@@ -41,6 +41,7 @@ $producto= $_GET['buscar'];
               <th class="bg-dark text-white">Talla</th>
               <th class="bg-dark text-white">Precio</th>
               <th class="bg-dark text-white">Stock</th>
+              <th class="bg-dark text-white">Imagen</th>
               
              
           </tr>
@@ -74,7 +75,7 @@ $producto= $_GET['buscar'];
                         <td>'.$fila[3].'</td>
                         <td>'.$fila[4].'</td>
                         <td>'.$fila[5].'</td>
-                            
+                          <td>'.$fila[6].'</td>  
                             
                         </tr>';
                         

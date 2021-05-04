@@ -55,7 +55,13 @@ require_once "./assets/nav/navProductos.php";
     </div>
   </div>
   
-  
+  <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Imagen</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="imagen" id="inputEmail3"  placeholder="Nombre de la imagen" >
+    </div>
+  </div>
+
   <div class="col-12">
     <button class="btn btn-primary" type="submit">Registrar Producto</button>
   </div>

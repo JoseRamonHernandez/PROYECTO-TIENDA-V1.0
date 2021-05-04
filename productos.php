@@ -43,12 +43,13 @@ require_once "conexion.php";
               <th class="bg-dark text-white">Nombre-Producto</th>
               <th class="bg-dark text-white">Talla</th>
               <th class="bg-dark text-white">Precio</th>
+              <th class="bg-dark text-white">Imagen</th>
              
           </tr>
         </thead>
         
     <?php
-    $consulta= "SELECT NombreProducto, talla, precio FROM productos";
+    $consulta= "SELECT NombreProducto, talla, precio, imagen FROM productos";
     $ejecutarconsulta= mysqli_query($db,$consulta);
     $verfilas= mysqli_num_rows($ejecutarconsulta);
     $fila= mysqli_fetch_array($ejecutarconsulta);
@@ -72,7 +73,7 @@ require_once "conexion.php";
                             <td>'.$fila[0].'</td>
                             <td>'.$fila[1].'</td>
                             <td>'.$fila[2].'</td>
-                            
+                            <td>'.$fila[3].'</td>
                             
                             
                         </tr>';
