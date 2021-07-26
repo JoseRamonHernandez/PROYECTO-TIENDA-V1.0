@@ -30,19 +30,6 @@ $producto= $_GET['buscar'];
 
 <div class="container">
     <center>
-<table class="table">
-        <thead>
-          <tr>
-              
-              
-              <th class="bg-dark text-white">Modelo</th>
-              <th class="bg-dark text-white">Nombre-Producto</th>
-              <th class="bg-dark text-white">Talla</th>
-              <th class="bg-dark text-white">Precio</th>
-              <th class="bg-dark text-white">Imagen</th>
-          </tr>
-        </thead>
-        
     <?php
     $consulta= "SELECT modelo, NombreProducto, talla, precio, imagen FROM productos WHERE NombreProducto LIKE '%$producto%'";
     $ejecutarconsulta= mysqli_query($db,$consulta);
@@ -60,21 +47,35 @@ $producto= $_GET['buscar'];
                 echo("<tr><td>Sin registros</td></tr>");
             }
             else
+            { ?>
+                <div class="container">
+                <div class="row">
+                    <?php
+            for($x=0; $x<=$fila; $x++)
             {
-                for($x=0; $x<=$fila; $x++)
-                {
-                    echo'
-                        <tr>
-                            <td>'.$fila[0].'</td>
-                            <td>'.$fila[1].'</td>
-                            <td>'.$fila[2].'</td>
-                            <td>'.$fila[3].'</td>
-                            <td>'.$fila[4].'</td>
-                            
-                        </tr>';
-                        
-                        $fila=mysqli_fetch_array($ejecutarconsulta);
-                }
+                
+                echo'
+                <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                '.$fila[4].'
+                <div class="card-body">
+                <h5 class="card-title">'.$fila[1].'</h5>
+                <p class="card-text">$MXN'.$fila[3].'</p>
+                <p class="card-text">Modelo: '.$fila[0].'</p>
+                <p class="card-text">Talla: '.$fila[2].'</p>
+                </div>
+                </div>
+                </div>
+                
+                
+                ';
+                 
+                    $fila=mysqli_fetch_array($ejecutarconsulta);
+            }
+            ?>
+            </div>
+         </div>
+         <?php
             }
         }
     }

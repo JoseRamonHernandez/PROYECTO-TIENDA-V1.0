@@ -31,22 +31,6 @@ require_once "conexion.php";
 </form>
 </div>
 <br>
-<div id="">
-<div class="container">
-    <center>
-<table class="table">
-        <thead>
-          <tr>
-              
-              
-              
-              <th class="bg-dark text-white">Nombre-Producto</th>
-              <th class="bg-dark text-white">Talla</th>
-              <th class="bg-dark text-white">Precio</th>
-              <th class="bg-dark text-white">Imagen</th>
-             
-          </tr>
-        </thead>
         
     <?php
     $consulta= "SELECT NombreProducto, talla, precio, imagen FROM productos";
@@ -66,20 +50,33 @@ require_once "conexion.php";
             }
             else
             {
+                ?>
+                    <div class="container">
+                    <div class="row">
+                        <?php
                 for($x=0; $x<=$fila; $x++)
                 {
+                    
                     echo'
-                        <tr>
-                            <td>'.$fila[0].'</td>
-                            <td>'.$fila[1].'</td>
-                            <td>'.$fila[2].'</td>
-                            <td>'.$fila[3].'</td>
-                            
-                            
-                        </tr>';
-                        
+                    <div class="col-sm-3">
+                    <div class="card" style="width: 18rem;">
+                    '.$fila[3].'
+                    <div class="card-body">
+                    <h5 class="card-title">'.$fila[0].'</h5>
+                    <p class="card-text">$MXN'.$fila[2].'</p>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    
+                    ';
+                     
                         $fila=mysqli_fetch_array($ejecutarconsulta);
                 }
+                ?>
+                </div>
+             </div>
+             <?php 
             }
         }
 

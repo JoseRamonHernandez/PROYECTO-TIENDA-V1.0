@@ -30,21 +30,6 @@ $producto= $_GET['buscar'];
 
 <div class="container">
     <center>
-<table class="table">
-        <thead>
-          <tr>
-              
-              
-          <th class="bg-dark text-white">Codigo de Barras</th>
-            <th class="bg-dark text-white">Modelo</th>
-              <th class="bg-dark text-white">Nombre-Producto</th>
-              <th class="bg-dark text-white">Talla</th>
-              <th class="bg-dark text-white">Precio</th>
-              
-             
-          </tr>
-        </thead>
-        
     <?php
     $consulta= "SELECT * FROM productos WHERE NombreProducto LIKE '%$producto%' OR talla = '$producto' OR CodigoBarras = '$producto'";
     $ejecutarconsulta= mysqli_query($db,$consulta);
@@ -62,23 +47,37 @@ $producto= $_GET['buscar'];
                 echo("<tr><td>Sin registros</td></tr>");
             }
             else
+            { ?>
+                <div class="container">
+                <div class="row">
+                    <?php
+            for($x=0; $x<=$fila; $x++)
             {
-                for($x=0; $x<=$fila; $x++)
-                {
-                    echo'
-                        <tr>
-                        <td>'.$fila[0].'</td>
-                        <td>'.$fila[1].'</td>
-                        <td>'.$fila[2].'</td>
-                        <td>'.$fila[3].'</td>
-                        <td>'.$fila[4].'</td>
-                        
-                            
-                            
-                        </tr>';
-                        
-                        $fila=mysqli_fetch_array($ejecutarconsulta);
-                }
+                
+                echo'
+                <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                '.$fila[6].'
+                <div class="card-body">
+                <h5 class="card-title">'.$fila[2].'</h5>
+                <p class="card-text">$MXN'.$fila[4].'</p>
+                <p class="card-text">Modelo: '.$fila[1].'</p>
+                <p class="card-text">Talla: '.$fila[3].'</p>
+                <p class="card-text">Cantidad: '.$fila[5].'</p>
+                <p class="card-text">Codigo de barras: '.$fila[0].'</p>
+                </div>
+                </div>
+                </div>
+                
+                
+                ';
+                 
+                    $fila=mysqli_fetch_array($ejecutarconsulta);
+            }
+            ?>
+            </div>
+         </div>
+         <?php
             }
         }
     }
